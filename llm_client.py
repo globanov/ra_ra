@@ -4,7 +4,7 @@ import logging
 
 from dotenv import load_dotenv
 
-from raft_utils import auto_timeit
+from utils import auto_timeit
 
 logger = logging.getLogger(__name__)
 

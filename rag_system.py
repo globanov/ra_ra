@@ -1,6 +1,6 @@
 import logging
 from typing import Dict, Any
-from raft_utils import auto_timeit
+from utils import auto_timeit
 from llm_client import YandexGPT
 from document_processor import DocumentProcessor
 from vector_search import VectorSearch
