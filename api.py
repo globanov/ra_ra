@@ -1,16 +1,18 @@
-from contextlib import asynccontextmanager
-from fastapi import FastAPI, File, UploadFile, HTTPException, Request
-from fastapi.responses import JSONResponse
-from fastapi.middleware.gzip import GZipMiddleware
-from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
-from typing import List, Optional, TypedDict
+import json
+import logging
 import os
 import tempfile
-import logging
-import json
-from rag_system import RAGSystem
+from contextlib import asynccontextmanager
+from typing import List, Optional, TypedDict
+
 import uvicorn
+from fastapi import FastAPI, File, UploadFile, HTTPException, Request
+from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.responses import JSONResponse
+from fastapi.templating import Jinja2Templates
+from pydantic import BaseModel
+
+from rag_system import RAGSystem
 from utils import auto_timeit
 
 logger = logging.getLogger(__name__)
@@ -67,6 +69,18 @@ app = FastAPI(
 )
 
 app.add_middleware(GZipMiddleware, minimum_size=1000)
+
+from fastapi.middleware.cors import CORSMiddleware
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 templates = Jinja2Templates(directory="templates")
 
 

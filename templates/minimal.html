@@ -62,7 +62,7 @@
 </div>
 
 <script>
-    const API = 'http://' + window.location.host;
+    const API = window.location.origin;
 
     async function uploadFile() {
         const file = document.getElementById('fileInput').files[0];
