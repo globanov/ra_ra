@@ -1,0 +1,11 @@
+line-length = 120
+
+exclude = [
+    'model_minilm', # model
+    'venv' # python virtual environment
+]
+
+
+[lint]
+select = ['F', 'E', 'W', 'N', 'PLE', 'PLW']
+preview=true

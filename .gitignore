@@ -1,0 +1,18 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+.env.local
+
+# Model files
+model_minilm/
+*.bin
+all-MiniLM-L6-v2.zip
+
+# IDE
+.vscode/
+.idea/
+.gigaide/
