@@ -7,9 +7,7 @@ __pycache__/
 .env
 .env.local
 
-# Model files
-model_minilm/
-*.bin
+# local copy
 all-MiniLM-L6-v2.zip
 
 # IDE
