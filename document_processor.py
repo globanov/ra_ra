@@ -12,7 +12,11 @@ class DocumentProcessor:
     def _ensure_imports(self):
         if self.embeddings_model is None:
             from sentence_transformers import SentenceTransformer
-            self.embeddings_model = SentenceTransformer('./model_minilm')
+            local_model_path = './models/all_minilm_l6_v2'
+            if os.path.exists(local_model_path):
+                self.embeddings_model = SentenceTransformer(local_model_path)
+            else:
+                self.embeddings_model = SentenceTransformer('all-MiniLM-L6-v2')
 
         if self.text_splitter is None:
             from langchain_text_splitters import RecursiveCharacterTextSplitter

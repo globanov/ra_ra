@@ -12,7 +12,12 @@ class VectorSearch:
     def _ensure_embeddings_model(self):
         if self.embeddings_model is None:
             from sentence_transformers import SentenceTransformer
-            self.embeddings_model = SentenceTransformer('./model_minilm')
+            local_model_path = './models/all_minilm_l6_v2'
+            import os
+            if os.path.exists(local_model_path):
+                self.embeddings_model = SentenceTransformer(local_model_path)
+            else:
+                self.embeddings_model = SentenceTransformer('all-MiniLM-L6-v2')
 
     def add_documents(self, chunks, embeddings=None):
         self.chunks = chunks
