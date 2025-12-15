@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 load_dotenv()
 
+
 class YandexGPT:
     def __init__(self, api_key=None, folder_id=None):
         self.api_key = api_key or os.getenv("YANDEX_API_KEY")
